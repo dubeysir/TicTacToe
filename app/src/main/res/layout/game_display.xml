@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:costom="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    tools:context=".GameDisplay"
+    android:background="#90a4ae">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-32dp">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="126dp"
+            android:layout_height="54dp"
+            android:layout_marginBottom="36dp"
+            android:background="@drawable/rb"
+            android:onClick="playAgainButtonClick"
+            android:text="@string/playAgain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button4"
+            app:layout_constraintHorizontal_bias="0.843"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="126dp"
+            android:layout_height="54dp"
+            android:layout_marginEnd="76dp"
+            android:layout_marginBottom="36dp"
+            android:background="@drawable/bb"
+            android:onClick="homeButtonClick"
+            android:text="@string/home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/button3"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="116dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="72dp"
+            android:textColor="#070707"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.477"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.alone.ttt.TTTboard
+            android:id="@+id/TTTboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            costom:boardColor="#f57f17"
+            costom:Xcolor="#000000"
+            costom:Ocolor="#fafafa"
+            costom:winningLinecolor="#00FF00"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
