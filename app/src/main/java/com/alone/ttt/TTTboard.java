@@ -25,6 +25,7 @@ public class TTTboard extends View {
     private final Paint p=new Paint();
 
     private final GameLogic game;
+    //i am
   private int cellSize=getWidth()/3;
     public TTTboard(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
