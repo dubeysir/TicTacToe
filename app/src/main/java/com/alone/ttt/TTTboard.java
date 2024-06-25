@@ -181,9 +181,10 @@ game=new GameLogic();
     }
     }
 
-public void setUpGame(Button playAgain, Button home, TextView playerDisplay,String[] name ){
+public void setUpGame(Button playAgain, Button home, TextView playerDisplay,String[] name){
 game.setPlayAgainBTN(playAgain);
 game.setHomeBTN(home);
+game.setPlayerTurn(playerDisplay);
     game.setPlayerName(name);
 }
     public void resetGame(){

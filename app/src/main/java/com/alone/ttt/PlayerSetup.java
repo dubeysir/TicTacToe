@@ -27,7 +27,7 @@ public class PlayerSetup extends AppCompatActivity {
         String p2N=p2.getText().toString();
 
         Intent i=new Intent(this, GameDisplay.class);
-        i.putExtra("Player NAme",new String[] {p1N,p2N});
+        i.putExtra("Player_Name",new String[] {p1N,p2N});
         startActivity(i);
 
     }

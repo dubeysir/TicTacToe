@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class GameDisplay extends AppCompatActivity {
 
 
-    private TTTboard tttb;
+    private TTTboard TTTB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,22 +25,22 @@ public class GameDisplay extends AppCompatActivity {
         playAgainBTN.setVisibility(View.GONE);
         homeBTN.setVisibility(View.GONE);
 
-        String[] playerNames=getIntent().getStringArrayExtra("PLAYER NAME");
+        String[] playerNames=getIntent().getStringArrayExtra("Player_Name");
 
 
         if(playerNames!=null){
-            playerTurn.setText((playerNames[0]+"'s Turn"));
+            playerTurn.setText((playerNames[0] + "'s Turn"));
         }
 
 
-        tttb=findViewById(R.id.TTTboard);
+        TTTB =findViewById(R.id.TTTB);
 
-        tttb.setUpGame(playAgainBTN,homeBTN,playerTurn,playerNames);
+        TTTB.setUpGame(playAgainBTN,homeBTN,playerTurn,playerNames);
     }
 
     public void playAgainButtonClick(View v){
-   tttb.resetGame();
-   tttb.invalidate();
+   TTTB.resetGame();
+   TTTB.invalidate();
     }
     public void homeButtonClick(View v){
 Intent i=new Intent(this, MainActivity.class);

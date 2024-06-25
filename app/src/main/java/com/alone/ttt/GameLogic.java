@@ -6,11 +6,11 @@ import android.widget.TextView;
 
 public class GameLogic {
 
-    private  String[] playerName={"Player 1","Player 2"};
+    private  String[] playerNames={"Player 1","Player 2"};
     private  int [][] gameBoard;
 
 //wintype {row,col,linetype}
-    private int[ ] winType={-1,-1,-1};
+    private int[] winType={-1,-1,-1};
     private Button playAgainBTN;
     private Button homeBTN;
     private TextView playerTurn;
@@ -29,9 +29,9 @@ public class GameLogic {
             gameBoard[row-1][col-1]=player;
 
             if(player==1){
-                playerTurn.setText(playerName[1]+"'s Turn");
+                playerTurn.setText((playerNames[1] + "'s Turn"));
             }else {
-                playerTurn.setText(playerName[2]+"'s Turn");
+                playerTurn.setText((playerNames[0] + "'s Turn"));
             }
             return true;
         }
@@ -52,7 +52,7 @@ public class GameLogic {
         }
 //vertical check
       for(int c=0;c<3;c++){
-          if(gameBoard[c][0]==gameBoard[c][1]&&gameBoard[c][0]==gameBoard[c][2]&&gameBoard[c][0]!=0)
+          if(gameBoard[0][c]==gameBoard[1][c]&&gameBoard[2][c]==gameBoard[0][c]&&gameBoard[0][c]!=0)
           {
               winType=new int[]{0,c,2};
               isWinner=true;
@@ -65,7 +65,7 @@ public class GameLogic {
       }
 
  //positive digonal check
-      if(gameBoard[2][0]==gameBoard[1][1]&&gameBoard[2][0]==gameBoard[2][2]&&gameBoard[2][0]!=0){
+      if(gameBoard[2][0]==gameBoard[1][1]&&gameBoard[2][0]==gameBoard[0][2]&&gameBoard[2][0]!=0){
           winType=new int[]{2,2,4};
           isWinner=true;
       }
@@ -73,7 +73,7 @@ int boardFilled=0;
       for(int r=0;r<3;r++){
           for(int c=0;c<3;c++){
              if(gameBoard[r][c]!=0){
-                 boardFilled++;
+                 boardFilled+=1;
              }
           }
       }
@@ -81,13 +81,13 @@ int boardFilled=0;
       if(isWinner){
           playAgainBTN.setVisibility(View.VISIBLE);
           homeBTN.setVisibility(View.VISIBLE);
-          playerTurn.setText(playerName[player-1]+ "WON!!!");
+          playerTurn.setText(playerNames[player-1]+ " WON!!!");
                return  true;
       } else if (boardFilled==9) {
 
           playAgainBTN.setVisibility(View.VISIBLE);
           homeBTN.setVisibility(View.VISIBLE);
-          playerTurn.setText(playerName[player-1]+ "Game Tied!!!");
+          playerTurn.setText("Game Tied!!!");
       return  true;
 
       }else {return false;}
@@ -105,7 +105,7 @@ int boardFilled=0;
 
       playAgainBTN.setVisibility(View.GONE);
       homeBTN.setVisibility(View.GONE);
-      playerTurn.setText((playerName[0]+ "'s Turn"));
+      playerTurn.setText((playerNames[0]+ "'s Turn"));
 
   }
 
@@ -121,8 +121,8 @@ int boardFilled=0;
         this.playerTurn = playerTurn;
     }
 
-    public void setPlayerName(String[] playerName) {
-        this.playerName = playerName;
+    public void setPlayerName(String[] playerNames) {
+        this.playerNames = playerNames;
     }
 
     public int[][] getGameBoard() {
